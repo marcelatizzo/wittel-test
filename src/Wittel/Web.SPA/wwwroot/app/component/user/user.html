@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4">
-            <h3>User Details</h3>
+            <h3>Cadastro Usu&aacute;rios</h3>
             <form [formGroup]="userForm" #f="ngForm" (ngSubmit)="save()">
                 <div class="form-group">
                     <label for="firstName">First Name</label><em *ngIf="userForm.controls['firstName'].hasError('required')" class="text-danger">*</em>
@@ -30,7 +30,7 @@
             <span class="warning">{{resmessage}}</span>
         </div>
         <div class="col-sm-8">
-            <h3>All User</h3>
+            <h3>Todos usuários</h3>
             <table style="width:100%" class="table table-striped">
                 <tr>
                     <th>Sr.</th>
