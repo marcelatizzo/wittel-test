@@ -82,7 +82,7 @@ namespace Web.API.Controllers
                     {
                         var orderItem = new OrderItem()
                         {
-                            Produto = item.Produto,
+                            ProdutoId = item.ProdutoId,
                             Descricao = item.Descricao,
                             Quantidade = item.Quantidade,
                             ValorUnitario = item.ValorUnitario,
