@@ -11,7 +11,7 @@ namespace Web.API.Controllers
     public class UsuarioController : ApiController
     {
         /// <summary>
-        /// Cadastro usuário
+        /// Cadastro de usuário
         /// </summary>
         /// <param name="id">Identificador</param>
         /// <remarks>Recupera dados do cadastro de determinado usuário</remarks>
