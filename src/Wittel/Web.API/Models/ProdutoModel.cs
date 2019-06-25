@@ -1,12 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace Web.API.Models
 {
-    public class ProdutoModel
+    public class Product
     {
         [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }

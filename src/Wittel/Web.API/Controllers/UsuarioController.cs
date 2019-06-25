@@ -10,6 +10,8 @@ namespace Web.API.Controllers
 {
     public class UsuarioController : ApiController
     {
+        private WittelDBContext db = new WittelDBContext();
+
         /// <summary>
         /// Cadastro de usuário
         /// </summary>
@@ -17,10 +19,18 @@ namespace Web.API.Controllers
         /// <remarks>Recupera dados do cadastro de determinado usuário</remarks>
         /// <response code="200">Sucesso</response>
         /// <response code="400">Bad Request</response>
+        /// <response code="404">Not Found</response>
         /// <response code="500">Internal Server Error</response>
-        public UsuarioModel Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            throw new NotImplementedException();
+            var obj = db.Usuarios.FirstOrDefault(x => x.Id == id);
+
+            if (obj == null)
+            {
+                return NotFound();
+            }
+
+            return Json(obj);
         }
 
         /// <summary>
@@ -29,10 +39,18 @@ namespace Web.API.Controllers
         /// <remarks>Recupera dados do cadastro de todos os usuários do sistema</remarks>
         /// <response code="200">Sucesso</response>
         /// <response code="400">Bad Request</response>
+        /// <response code="404">Not Found</response>
         /// <response code="500">Internal Server Error</response>
-        public List<UsuarioModel> GetAll()
+        public IHttpActionResult GetAll()
         {
-            throw new NotImplementedException();
+            var obj = db.Usuarios.ToList();
+
+            if ((obj == null) || (obj.Count == 0))
+            {
+                return NotFound();
+            }
+
+            return Json(obj);
         }
 
         //public void Post([FromBody]UsuarioModel value)
