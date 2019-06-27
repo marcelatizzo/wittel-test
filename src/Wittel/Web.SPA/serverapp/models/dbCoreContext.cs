@@ -33,6 +33,7 @@ namespace Web.SPA.serverapp.models
                 entity.Property(e => e.LastName).HasMaxLength(250);
 
                 entity.Property(e => e.Phone).HasMaxLength(50);
+
             });
         }
     }

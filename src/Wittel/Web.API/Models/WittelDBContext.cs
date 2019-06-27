@@ -11,9 +11,9 @@ namespace Web.API.Models
         public WittelDBContext() : base()
         { }
 
-        public DbSet<Product> Produtos { get; set; }
-
         public DbSet<User> Usuarios { get; set; }
+
+        public DbSet<Product> Produtos { get; set; }
 
         public DbSet<Order> Pedidos { get; set; }
 
