@@ -21,13 +21,7 @@ export class UserComponent implements OnInit {
     ngOnInit() {
         this.userForm = this.formBuilder.group({
             id: 0,
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
-            email: new FormControl('', Validators.compose([
-                Validators.required,
-                Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-            ])),
-            phone: new FormControl('', Validators.required)
+            nome: new FormControl('', Validators.required)
         });
         this.getAll();
     }
@@ -60,10 +54,7 @@ export class UserComponent implements OnInit {
                 this.user = response;
                 this.userForm.setValue({
                     id: this.user.id,
-                    firstName: this.user.firstName,
-                    lastName: this.user.lastName,
-                    email: this.user.email,
-                    phone: this.user.phone
+                    nome: this.user.nome
                 });
             }, error => {
                 console.log(error);
@@ -75,7 +66,7 @@ export class UserComponent implements OnInit {
         //debugger
         this.userService.save(this.userForm.value)
             .subscribe(response => {
-                //console.log(response)
+                console.log(response)
                 this.resmessage = response;
                 this.getAll();
                 this.reset();
@@ -88,7 +79,7 @@ export class UserComponent implements OnInit {
     delete(e, m) {
         //debugger
         e.preventDefault();
-        var IsConf = confirm('You are about to delete ' + m.firstName + '. Are you sure?');
+        var IsConf = confirm('You are about to delete ' + m.nome + '. Are you sure?');
         if (IsConf) {
             this.userService.delete(m.id)
                 .subscribe(response => {
@@ -104,10 +95,7 @@ export class UserComponent implements OnInit {
     reset() {
         this.userForm.setValue({
             id: 0,
-            firstName: null,
-            lastName: null,
-            email: null,
-            phone: null
+            nome: null
         });
     }
 }

@@ -84,10 +84,7 @@ namespace Web.SPA.serverapp.webapi
                             var entityUpdate = _ctx.User.FirstOrDefault(x => x.Id == model.id);
                             if (entityUpdate != null)
                             {
-                                entityUpdate.FirstName = model.firstName;
-                                entityUpdate.LastName = model.lastName;
-                                entityUpdate.Phone = model.phone;
-                                entityUpdate.Email = model.email;
+                                entityUpdate.Nome = model.nome;
                                 await _ctx.SaveChangesAsync();
                             }
                         }
@@ -95,10 +92,7 @@ namespace Web.SPA.serverapp.webapi
                         {
                             var UserModel = new User
                             {
-                                FirstName = model.firstName,
-                                LastName = model.lastName,
-                                Email = model.email,
-                                Phone = model.phone
+                                Nome = model.nome
                             };
 
                             _ctx.User.Add(UserModel);

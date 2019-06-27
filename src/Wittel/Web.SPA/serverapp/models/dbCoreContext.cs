@@ -22,19 +22,12 @@ namespace Web.SPA.serverapp.models
             //}
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>(entity =>
-            {
-                entity.Property(e => e.Email).HasMaxLength(250);
-
-                entity.Property(e => e.FirstName).HasMaxLength(250);
-
-                entity.Property(e => e.LastName).HasMaxLength(250);
-
-                entity.Property(e => e.Phone).HasMaxLength(50);
-
-            });
-        }
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>(entity =>
+        //    {
+        //        entity.Property(e => e.Nome).HasMaxLength(150);
+        //    });
+        //}
     }
 }

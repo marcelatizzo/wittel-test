@@ -33,9 +33,9 @@ namespace Web.SPA
                        .AllowAnyHeader();
             }));
 
-            ////Database Connection
-            //var connection = @"Server=;Database=;Trusted_Connection=True;";
-            //services.AddDbContext<dbCoreContext>(options => options.UseSqlServer(connection));
+            //Database Connection
+            var connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\git\wittel-test\src\Wittel\Web.API\App_Data\WittelDatabase.mdf;Integrated Security=True";
+            services.AddDbContext<dbCoreContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -20,13 +20,7 @@ var UserComponent = /** @class */ (function () {
     UserComponent.prototype.ngOnInit = function () {
         this.userForm = this.formBuilder.group({
             id: 0,
-            firstName: new forms_1.FormControl('', forms_1.Validators.required),
-            lastName: new forms_1.FormControl('', forms_1.Validators.required),
-            email: new forms_1.FormControl('', forms_1.Validators.compose([
-                forms_1.Validators.required,
-                forms_1.Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-            ])),
-            phone: new forms_1.FormControl('', forms_1.Validators.required)
+            nome: new forms_1.FormControl('', forms_1.Validators.required)
         });
         this.getAll();
     };
@@ -57,10 +51,7 @@ var UserComponent = /** @class */ (function () {
             _this.user = response;
             _this.userForm.setValue({
                 id: _this.user.id,
-                firstName: _this.user.firstName,
-                lastName: _this.user.lastName,
-                email: _this.user.email,
-                phone: _this.user.phone
+                nome: _this.user.nome
             });
         }, function (error) {
             console.log(error);
@@ -72,7 +63,7 @@ var UserComponent = /** @class */ (function () {
         //debugger
         this.userService.save(this.userForm.value)
             .subscribe(function (response) {
-            //console.log(response)
+            console.log(response);
             _this.resmessage = response;
             _this.getAll();
             _this.reset();
@@ -85,7 +76,7 @@ var UserComponent = /** @class */ (function () {
         var _this = this;
         //debugger
         e.preventDefault();
-        var IsConf = confirm('You are about to delete ' + m.firstName + '. Are you sure?');
+        var IsConf = confirm('You are about to delete ' + m.nome + '. Are you sure?');
         if (IsConf) {
             this.userService.delete(m.id)
                 .subscribe(function (response) {
@@ -100,10 +91,7 @@ var UserComponent = /** @class */ (function () {
     UserComponent.prototype.reset = function () {
         this.userForm.setValue({
             id: 0,
-            firstName: null,
-            lastName: null,
-            email: null,
-            phone: null
+            nome: null
         });
     };
     UserComponent = __decorate([
